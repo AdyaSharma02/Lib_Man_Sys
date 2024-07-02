@@ -1,0 +1,80 @@
+.bg-image {
+      margin-top: 1%;
+      background-image: url('admin_img.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      width: 100%;
+      /* Other styles for overlaying the container */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 2s ease;
+      position: relative; /* Add position relative */
+    }
+
+    /* Additional styles for container with text on image */
+    .position-relative {
+      position: relative;
+    }
+
+    .position-absolute {
+      position: absolute;
+    }
+
+    .top-50 {
+      top: 50%;
+    }
+
+    .start-50 {
+      left: 50%;
+    }
+
+    .translate-middle {
+      transform: translate(-50%, -50%);
+    }
+
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Custom CSS for styling */
+    .container {
+      padding: 20px;
+      animation: slideInUp 1.5s ease;
+
+    }
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .card-header {
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 15px 15px 0 0;
+    }
+    .btn-custom {
+      background-color: #007fff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 20px 0; /* Adjust vertical padding */
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      height: 100%; /* Make buttons fill the height of the container */
+    }
+    .btn-custom:hover {
+      background-color: #00ccff;
+    }
+    .btn-custom .btn-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%; /* Ensure text is centered vertically */
+    }

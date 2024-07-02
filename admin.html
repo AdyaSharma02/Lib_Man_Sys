@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal - Library Management System</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><i class="bi bi-book"></i> LIBRARY MANAGEMENT SYSTEM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#footer"><i class="fas fa-info-circle"></i> ABOUT US</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<!-- Content with background image -->
+<div class="bg-image position-relative">
+  <!-- Container for text on the image -->
+  <div class="container text-center text-white position-absolute top-50 start-50 translate-middle" style="background-color: rgba(0, 0, 0, 0.5); padding: 20px;">
+    <h1>Welcome to the Admin Portal</h1>
+    <p>The Admin Portal is your control center for managing the Library Management System. Here, administrators can oversee book inventory, handle user accounts, and access advanced features for maintaining the library system.</p>
+    <p>Whether you're updating catalog information, managing user permissions, or generating reports, the Admin Portal offers powerful tools to streamline library administration tasks.</p>
+  </div>
+</div>
+
+
+
+<!-- Container with content -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12"> <!-- Change the column width to 12 -->
+      <div class="card">
+        <div class="card-body">
+          <!-- Buttons in a single row -->
+          <div class="row justify-content-center">
+            <div class="col-md-2 mb-3"> <!-- Adjust column widths as needed -->
+              <a href="/new_user" class="btn btn-custom btn-lg btn-block">
+                <span class="btn-text">ADD NEW USER</span>
+              </a>
+            </div>
+            <div class="col-md-2 mb-3">
+              <a href="/view&add" class="btn btn-custom btn-lg btn-block">
+                <span class="btn-text">ADD BOOKS</span>
+              </a>
+            </div>
+            <div class="col-md-2 mb-3">
+              <a href="/issue_books_admin" class="btn btn-custom btn-lg btn-block">
+                <span class="btn-text">ISSUE BOOKS</span>
+              </a>
+            </div>
+            <div class="col-md-2 mb-3">
+              <a href="/return_books_form" class="btn btn-custom btn-lg btn-block">
+                <span class="btn-text">RETURN BOOK</span>
+              </a>
+            </div>
+            <div class="col-md-2 mb-3">
+              <a href="/view_users" class="btn btn-custom btn-lg btn-block">
+                <span class="btn-text">VIEW USERS</span>
+              </a>
+            </div>
+            <div class="col-md-2 mb-3">
+              <a href="/view_books_admin" class="btn btn-custom btn-lg btn-block">
+                <span class="btn-text">VIEW ISSUED BOOKS</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer id="footer" class="footer mt-auto py-3 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <!-- Privacy Policy -->
+            <div class="col-lg-4 col-md-6">
+                <h5>Privacy Policy</h5>
+                <ul>
+                    <li>At Library Management System, we take your privacy seriously.</li>
+                    <li>This Privacy Policy outlines the types of personal information we collect and how we use it.</li>
+                    <li>By using our services, you agree to the collection and use of information in accordance with this policy.</li>
+                </ul>
+            </div>
+            <!-- Terms of Service -->
+            <div class="col-lg-4 col-md-6">
+                <h5>Terms of Service</h5>
+                <ul>
+                    <li>Welcome to Library Management System!</li>
+                    <li>By accessing or using our services, you agree to be bound by these Terms of Service.</li>
+                    <li>Please read them carefully before using our platform.</li>
+                </ul>
+            </div>
+            <!-- Contact Us -->
+            <div class="col-lg-4 col-md-12">
+                <h5>Contact Us</h5>
+                <ul>
+                    <li>If you have any questions, concerns, or feedback, please don't hesitate to contact us.</li>
+                    <li>You can reach us by email at <a href="mailto:contact@librarymanagement.com">contact@librarymanagement.com</a>.</li>
+                    <li>Or you can contact us via:
+                        <ul>
+                            <li>Phone: +1 (555) 123-4567</li>
+                            <li>Telegram ID: @librarymanagement_telegram</li>
+                            <li>Instagram ID: @librarymanagement_instagram</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="mt-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <span class="text-muted">Library Management System &copy; 2024. All rights reserved.</span>
+                <div class="social-icons mt-3">
+                    <a href="https://www.facebook.com" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

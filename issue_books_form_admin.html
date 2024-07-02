@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin-Issue Books</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Custom Styles */
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="submit"],
+    button[type="reset"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover,
+    button[type="reset"]:hover {
+      background-color: #0056b3;
+    }
+    .issue-form-image {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .issue-form-image:hover {
+      transform: scale(1.1);
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #343a40 !important;
+    }
+    .navbar-brand {
+      font-size: 24px;
+    }
+    .nav-link {
+      font-size: 18px;
+    }
+    /* Footer */
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+    }
+    .footer a {
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><i class="bi bi-book"></i> LIBRARY MANAGEMENT SYSTEM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">
+          <i class="fas fa-home"></i> HOME
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#footer"><i class="fas fa-info-circle"></i> ABOUT US</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form id="issueForm" action="/add_issue_books" method="get" onsubmit="return validateForm()">
+        <h2 class="text-center mb-4">ISSUE BOOKS</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="BookID">BOOK ID:</label>
+              <input type="text" id="BookID" name="BookID" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="UserName">USER NAME:</label>
+              <input type="text" id="UserName" name="UserName" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="TimePeriod">TIME PERIOD (in days):</label>
+              <input type="number" id="TimePeriod" name="TimePeriod" class="form-control" min="1" max="60" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="IssueDate">ISSUE DATE:</label>
+              <input type="date" id="IssueDate" name="IssueDate" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="SUBMIT" class="btn btn-primary btn-block">
+          <button type="reset" class="btn btn-secondary btn-block"><i class="fas fa-sync-alt"></i> RESET</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <img src="/styles/issue_form_img2.jpg" alt="Issue Form Image" class="issue-form-image">
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="footer mt-auto py-3 bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <!-- Privacy Policy -->
+      <div class="col-lg-4 col-md-6">
+        <h5>Privacy Policy</h5>
+        <ul>
+          <li>At Library Management System, we take your privacy seriously.</li>
+          <li>This Privacy Policy outlines the types of personal information we collect and how we use it.</li>
+          <li>By using our services, you agree to the collection and use of information in accordance with this policy.</li>
+        </ul>
+      </div>
+      <!-- Terms of Service -->
+      <div class="col-lg-4 col-md-6">
+        <h5>Terms of Service</h5>
+        <ul>
+          <li>Welcome to Library Management System!</li>
+          <li>By accessing or using our services, you agree to be bound by these Terms of Service.</li>
+          <li>Please read them carefully before using our platform.</li>
+        </ul>
+      </div>
+      <!-- Contact Us -->
+      <div class="col-lg-4 col-md-12">
+        <h5>Contact Us</h5>
+        <ul>
+          <li>If you have any questions, concerns, or feedback, please don't hesitate to contact us.</li>
+          <li>You can reach us by email at <a href="mailto:contact@librarymanagement.com">contact@librarymanagement.com</a>.</li>
+          <li>Or you can contact us via:
+            <ul>
+              <li>Phone: +1 (555) 123-4567</li>
+              <li>Telegram ID: @librarymanagement_telegram</li>
+              <li>Instagram ID: @librarymanagement_instagram</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="mt-4">
+    <div class="row">
+      <div class="col-12 text-center">
+        <span class="text-muted">Library Management System &copy; 2024. All rights reserved.</span>
+        <div class="social-icons mt-3">
+          <a href="https://www.facebook.com" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.twitter.com" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function validateForm() {
+  // Fetch values from form inputs and trim whitespace
+  var bookId = document.getElementById("BookID").value.trim();
+  var userName = document.getElementById("UserName").value.trim();
+  var timePeriod = parseInt(document.getElementById("TimePeriod").value.trim(), 10);
+  var issueDate = document.getElementById("IssueDate").value.trim();
+
+  // Check if Book ID format is valid
+  if (!bookId.match(/^[A-Za-z]\d+$/)) {
+    alert("Please enter a valid Book ID format (e.g., B1234).");
+    return false;
+  }
+
+  // Check if User Name format is valid
+  if (!userName.match(/^[a-zA-Z0-9_]+$/)) {
+    alert("Please enter a valid User Name (alphanumeric characters and underscore only).");
+    return false;
+  }
+
+  // Check if Time Period is a positive integer
+  if (timePeriod <= 0) {
+    alert("Please enter a valid positive integer for Time Period (in days).");
+    return false;
+  }
+
+  // Check if Issue Date is not in the past
+  if (new Date(issueDate) < new Date()) {
+    alert("Issue Date cannot be in the past.");
+    return false;
+  }
+
+  // Form validation passed
+  return true;
+}
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

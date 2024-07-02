@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/styles/loginPage.css">
+</head>
+<body>
+    <div class="container">
+        <div class="library-container">
+            <img src="/styles/login_img.jpg" alt="Library" class="library-image">
+        </div>
+        <div class="login-form">
+            <h4 class="text-center">LIBRARY MANAGEMENT SYSTEM</h4>
+            <form action="/login" method="get" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                        <button type="button" id="showPassword" class="toggle-password" onclick="togglePasswordVisibility()">
+                            <i class="fas fa-eye" id="passwordIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="userRole" id="userRadio" value="User" required>
+                        <label class="form-check-label" for="userRadio"><b>User</b></label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="userRole" id="adminRadio" value="Admin" required>
+                        <label class="form-check-label" for="adminRadio"><b>Admin</b></label>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <button class="form-submit" type="submit"><i class="fas fa-sign-in-alt"></i><b>Login</b></button>
+                        <button class="form-submit" type="reset"><i class="fas fa-sync-alt"></i><b>REFRESH</b></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<script>
+    function validateForm() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (!isValidString(username)) {
+        alert("Invalid characters in username. Only alphanumeric characters and underscore are allowed.");
+        return false;
+    }
+
+    if (!isValidString(password)) {
+        alert("Invalid characters in password. Only alphanumeric characters and underscore are allowed.");
+        return false;
+    }
+
+    return true;
+}
+
+function isValidString(str) {
+    for (var i = 0; i < str.length; i++) {
+        var charCode = str.charCodeAt(i);
+        if (!((charCode >= 48 && charCode <= 57) || // 0-9
+              (charCode >= 65 && charCode <= 90) || // A-Z
+              (charCode >= 97 && charCode <= 122) || // a-z
+              charCode === 95)) { // underscore
+            return false;
+        }
+    }
+    return true;
+}
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    var passwordIcon = document.getElementById("passwordIcon");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        passwordIcon.classList.remove("fa-eye");
+        passwordIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        passwordIcon.classList.remove("fa-eye-slash");
+        passwordIcon.classList.add("fa-eye");
+    }
+    // Set focus back to the password input after toggling visibility
+    passwordInput.focus();
+}
+
+</script>
+
+</body>
+</html>

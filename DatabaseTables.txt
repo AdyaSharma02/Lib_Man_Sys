@@ -1,0 +1,123 @@
+-- Create login_logout table
+CREATE TABLE login_logout (
+    UserName VARCHAR(50) PRIMARY KEY,
+    Password VARCHAR(50),
+    UserType VARCHAR(50)
+);
+
+-- Insert data into login_logout table
+INSERT INTO login_logout (UserName, Password, UserType)
+VALUES
+    ('user1', 'password1', 'User'),
+    ('user2', 'password2', 'Admin'),
+    ('user3', 'password3', 'User'),
+    ('user4', 'password4', 'Admin');
+
+-- Create view_books table
+CREATE TABLE view_books (
+    BookID INT PRIMARY KEY,
+    BookName VARCHAR(100),
+    Category VARCHAR(100),
+    Price INT
+);
+
+-- Insert data into view_books table
+INSERT INTO view_books (BookID, BookName, Category, Price)
+VALUES
+    (1, 'Introduction to Algorithms', 'Algorithms', 500),
+    (2, 'Computer Networks', 'Networking', 400),
+    (3, 'Database Systems', 'Database Management', 450),
+    (4, 'Data Structures', 'Algorithms', 350),
+    (5, 'Operating Systems', 'System Software', 420),
+    (6, 'Web Development', 'Web Development', 380);
+
+-- Create issue_books table
+CREATE TABLE issue_books (
+    BookID INT,
+    UserName VARCHAR(50),
+    TimePeriod INT,
+    IssueDate DATE,
+    FOREIGN KEY (BookID) REFERENCES view_books(BookID),
+    FOREIGN KEY (UserName) REFERENCES login_logout(UserName),
+    PRIMARY KEY (BookID, UserName)
+);
+
+-- Insert data into issue_books table
+INSERT INTO issue_books (BookID, UserName, TimePeriod, IssueDate)
+VALUES
+    (1, 'user1', 14, '2024-01-10'),
+    (2, 'user2', 7, '2024-02-08'),
+    (3, 'user2', 20, '2023-08-09'),
+    (4, 'user4', 25, '2023-06-06');
+
+-- Create return_books table
+CREATE TABLE return_books (
+    UserName VARCHAR(50),
+    BookID INT,
+    DateOfSubmission DATE,
+    FOREIGN KEY (UserName) REFERENCES login_logout(UserName),
+    FOREIGN KEY (BookID) REFERENCES view_books(BookID),
+    PRIMARY KEY (UserName, BookID, DateOfSubmission)
+);
+
+-- Insert data into return_books table
+INSERT INTO return_books (UserName, BookID, DateOfSubmission)
+VALUES
+    ('user1', 1, '2024-02-24'),
+    ('user2', 2, '2024-02-15'),
+    ('user3', 3, '2024-02-28'),
+    ('user4', 4, '2024-03-01'),
+    ('user1', 1, '2024-03-05'),
+    ('user2', 3, '2024-03-07');
+	
+	
+
+
+
+
+
+
+	
+
+
+import React, { useState } from 'react';
+
+function Square() {
+  const [number, setNumber] = useState('');
+  const [square, setSquare] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const num = parseFloat(number);
+    if (!isNaN(num)) {
+      setSquare(num * num);
+    } else {
+      alert('Please enter a valid number!');
+    }
+  };
+
+  const handleChange = (event) => {
+    setNumber(event.target.value);
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter a number:
+          <input type="text" value={number} onChange={handleChange} />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+      <div>
+        <label>
+          Square of the number:
+          <input type="text" value={square} readOnly />
+        </label>
+      </div>
+    </div>
+  );
+}
+
+export default Square;
+
