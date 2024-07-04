@@ -41,9 +41,6 @@ const pool = mysql.createPool({
 
 
 Start the server:
-bash
-Copy code
-node app.js
 
 
 Access the system using a web browser:
