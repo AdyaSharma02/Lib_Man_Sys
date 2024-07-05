@@ -15,21 +15,15 @@ Getting Started
 
 
 Clone the repository:
-bash
-Copy code
 git clone https://github.com/AdyaSharma02/Lib_Man_Sys.git
 
 
 Install the required packages:
-bash
-Copy code
 cd Lib_Man_Sys
 npm install
 
 
 Update the MySQL connection details in app.js:
-javascript
-Copy code
 const pool = mysql.createPool({
   connectionLimit: 100,
   host: 'localhost',
