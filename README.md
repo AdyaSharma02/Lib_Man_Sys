@@ -26,6 +26,7 @@ git clone https://github.com/AdyaSharma02/Lib_Man_Sys.git
 
 Install the required packages:
 cd Lib_Man_Sys
+
 npm install
 
 
