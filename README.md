@@ -1,8 +1,11 @@
-Library Management System (Lib_Man_Sys)
+# Library Management System (Lib_Man_Sys)
 This repository contains the source code for a simple Library Management System using Node.js, Express, and MySQL. The system allows users to view books, issue books, and return books, while administrators can manage books, users, and issue/return records.
 
 
-Prerequisites
+
+
+
+# Prerequisites
 •	Node.js installed
 •	MySQL server with the lms database and the following tables:
 o	login_logout
@@ -11,7 +14,10 @@ o	issue_books
 o	return_books
 
 
-Getting Started
+
+
+
+# Getting Started
 
 
 Clone the repository:
@@ -34,7 +40,10 @@ const pool = mysql.createPool({
 });
 
 
-Start the server:
+
+
+
+# Start the server:
 
 
 Access the system using a web browser:
@@ -42,7 +51,10 @@ Access the system using a web browser:
 •	Administrators: http://localhost:5000/login?userRole=Admin
 
 
-Features
+
+
+
+# Features
 •	User authentication with session management
 •	User roles: User and Admin
 •	Users can view books and issue books
@@ -51,7 +63,10 @@ Features
 •	Issue and return book records management
 
 
-File Structure
+
+
+
+# File Structure
 •	app.js: The main application file
 •	styles: Contains CSS files
 •	login.html: Login page
@@ -64,6 +79,9 @@ File Structure
 •	add_books.html: Add books form (Admin only)
 
 
-Contributing
+
+
+
+# Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
